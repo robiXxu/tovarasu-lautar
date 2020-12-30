@@ -1,0 +1,18 @@
+{
+  "name": "tovarasu-lautar",
+  "version": "1.0.0",
+  "description": "A music bot made for fun",
+  "main": "app.js",
+  "author": "Schiriac Robert <schiriac.robert@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "opusscript": "^0.0.7",
+    "ytdl-core": "^4.2.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}

@@ -142,6 +142,7 @@ const printHelp = (message) => {
     `${prefix}stop`,
     `${prefix}volume 0.5`,
     `${prefix}queue`,
+    `${prefix}clear`,
     `${prefix}plp 0 - expected package lost percentage`,
     `${prefix}fec true - forward error correction`,
   ];

@@ -29,6 +29,11 @@ const resume = (message) => {
   const server = getServer(message);
   return server.dispatcher ? getServer(message).dispatcher.resume() : null;
 };
+const repeat = (message) => {
+  const server = getServer(message);
+  server.repeat = !server.repeat;
+  return null;
+};
 
 const pause = (message) => {
   const server = getServer(message);
@@ -142,6 +147,8 @@ const messageHandler = (message) => {
       return pause(message);
     case "resume":
       return resume(message);
+    case "repeat":
+      return repeat(message);
     case "stop":
       return stop(message);
     case "volume":

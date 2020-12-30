@@ -131,6 +131,30 @@ const initState = (message) => {
   };
 };
 
+const printHelp = (message) => {
+  const prefix = process.env.TOVARASULAUTAR_PREFIX;
+  const commands = [
+    `${prefix}play https://youtu.be/EosMazKaPbU`,
+    `${prefix}skip`,
+    `${prefix}pause`,
+    `${prefix}resume`,
+    `${prefix}repeat`,
+    `${prefix}stop`,
+    `${prefix}volume 0.5`,
+    `${prefix}queue`,
+    `${prefix}plp 0 - expected package lost percentage``${prefix}fec true - forward error correction`,
+  ];
+  return message.channel.send("```" + commands.join("\n") + "```");
+};
+
+const clearQueue = (message) => {
+  if (state[message.guild.id]) {
+    delete state[message.guild.id].queue;
+    state[message.guild.id].queue = [];
+  }
+  return null;
+};
+
 const messageHandler = (message) => {
   initState(message);
   if (!message.content.startsWith(process.env.TOVARASULAUTAR_PREFIX)) return;
@@ -153,12 +177,16 @@ const messageHandler = (message) => {
       return stop(message);
     case "volume":
       return setVolume(message, args);
+    case "clear":
+      return clearQueue(message);
     case "queue":
       return printQueue(message);
     case "plp":
       return setPLP(message, args);
     case "fec":
       return setFEC(message, args);
+    case "help":
+      return printHelp(message);
   }
 };
 

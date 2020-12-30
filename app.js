@@ -142,7 +142,8 @@ const printHelp = (message) => {
     `${prefix}stop`,
     `${prefix}volume 0.5`,
     `${prefix}queue`,
-    `${prefix}plp 0 - expected package lost percentage``${prefix}fec true - forward error correction`,
+    `${prefix}plp 0 - expected package lost percentage`,
+    `${prefix}fec true - forward error correction`,
   ];
   return message.channel.send("```" + commands.join("\n") + "```");
 };
